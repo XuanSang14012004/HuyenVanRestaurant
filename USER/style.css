@@ -1,0 +1,610 @@
+
+.header{
+    background-color: #cbddee;
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    justify-items: center;
+    justify-content: space-between;
+    display: flex;
+
+}
+
+.logo img{
+    width: 50px;
+    height: auto;
+     justify-content: space-between;
+     justify-items: center;
+}
+/* Bỏ dấu chấm đầu dòng mặc định của <ul> */
+.navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* xếp nằm ngang */
+  justify-content: center; /* căn giữa menu */
+
+}
+
+/* Mỗi mục menu */
+.navigation li {
+  margin: 0 15px; /* khoảng cách giữa các mục */
+  margin-top: 7px;
+}
+
+/* Link menu */
+.navigation a {
+  text-decoration: none; /* bỏ gạch chân */
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  padding: 10px 15px;
+  display: block; /* tăng vùng bấm */
+  transition: 0.3s;
+}
+
+/* Hiệu ứng hover */
+.navigation a:hover {
+  background-color: #555; /* đổi màu nền khi rê chuột */
+  border-radius: 5px;
+}
+
+/* Phần nền tổng thể */
+.container {
+  background-color: #325c83;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  background: url("images/bg.jpg") center/cover no-repeat; /* nền (tùy chỉnh ảnh) */
+  text-align: center;
+}
+/* .img-welcome img{
+    width: 1500px;
+    height: 585px
+} */
+.welcome {
+  height: 100vh; /* chiếm toàn màn hình */
+  background: url("../images/logo-nha-hang-sang-trong.jpg") center/cover no-repeat; /* ảnh nền */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  width: 1500px;
+  height: 585px
+}
+
+
+/* Thêm lớp phủ tối nhẹ để chữ dễ đọc hơn */
+.welcome::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* lớp mờ đen phủ ảnh */
+  z-index: 1;
+}
+
+/* Đưa nội dung lên trên lớp phủ */
+.welcome h1,
+.welcome p,
+.welcome .btn {
+  position: relative;
+  z-index: 2;
+}
+
+/* Nút bấm */
+.btn {
+  display: inline-block;
+  background: #ff9800;
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #e68900;
+  transform: scale(1.05);
+}
+.footer {
+    background-color: #cbddee;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: auto;
+
+}
+
+/* ------------menu-------------- */
+/* 🎯 Phần tìm kiếm */
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+  gap: 10px;
+}
+
+.search input {
+  width: 300px;
+  padding: 10px 15px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.search input:focus {
+  border-color: #ff9800; /* màu nổi khi focus */
+  box-shadow: 0 0 5px #ff9800;
+}
+
+.search button {
+  background-color: #ff9800;
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search button:hover {
+  background-color: #e68900;
+  transform: scale(1.05);
+}
+
+/* 🍴 Phần bộ lọc (filter menu) */
+.filter {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.filter ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  gap: 15px;
+  background: #f4f4f4;
+  padding: 10px 20px;
+  border-radius: 30px;
+}
+
+.filter li {
+  margin: 0;
+}
+
+.filter a {
+  text-decoration: none; /* bỏ gạch chân */
+  color: #333;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.filter a:hover {
+  background-color: #ff9800;
+  color: white;
+}
+
+/* Nếu muốn tô đậm khi đang chọn loại filter */
+.filter a.active {
+  background-color: #ff9800;
+  color: white;
+}
+
+/* ====== MENU CONTAINER ====== */
+body {
+  background: #f9f9f9;
+  font-family: "Poppins", sans-serif;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto;
+  padding: 20px;
+  max-width: 1100px;
+}
+
+.menu-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  width: 100%;
+}
+
+
+.menu-item {
+    border: 2px solid #ff9900; /* viền màu cam nổi bật */
+    background-color: #fff7e6; /* nền sáng dễ nhìn */
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(255,153,0,0.3);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.menu-item h3 {
+    font-size: 20px;
+    color: #ff6600;
+    margin-bottom: 5px;
+}
+
+.menu-item p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.menu-item .price {
+    font-weight: bold;
+    color: #ff6600;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.menu-item label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+.menu-item .quantity {
+    width: 50px;       /* độ rộng nhỏ hơn */
+    padding: 4px 6px;  /* padding vừa phải */
+    font-size: 14px;   /* chữ nhỏ hơn */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center; /* chữ số căn giữa */
+    outline: none;
+}
+
+
+/* nút Đặt tất cả */
+.order-all {
+  margin-top: 40px;
+}
+
+#orderAllBtn {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#orderAllBtn:hover {
+  background-color: #e68900;
+  transform: scale(1.05);
+}
+/* -----------history------------- */
+        .history-container {
+            width: 80%;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+               flex: 1;      /* chiếm khoảng trống còn lại */
+
+         flex-direction: column;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #f8f8f8;
+        }
+
+        .btn-clear {
+            background: red;
+            padding: 10px 15px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .btn-clear:hover {
+            background: darkred;
+        }
+        
+        /* -----------------------------liên hệ --------- */
+        .contact-container {
+            width: 80%;
+            margin: 40px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .contact-info p {
+            font-size: 17px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        form textarea {
+            height: 130px;
+            resize: none;
+        }
+
+        .btn-send {
+            background: #009688;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .btn-send:hover {
+            background: #00796b;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+        }
+/* ------------về chúng tôi------------- */
+
+        .about-container {
+            width: 85%;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+            line-height: 1.8;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .about-section {
+            margin-bottom: 40px;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .team {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            width: 30%;
+            min-width: 240px;
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .team-member h4 {
+            margin: 10px 0 5px;
+        }
+
+        .team-member p {
+            font-size: 15px;
+            color: #666;
+        }
+/* --------------COMBO------------ */
+
+
+/* ===== Container combo ===== */
+.combo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ===== Combo Item ===== */
+.combo-item {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.combo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.combo-item h3 {
+    color: #1a73e8;
+    margin-bottom: 15px;
+}
+
+.combo-item label {
+    display: block;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.combo-item select,
+.combo-item input[type="number"] {
+    padding: 6px 10px;
+    margin-left: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    min-width: 120px;
+}
+
+/* ===== Menu chọn món ===== */
+.menu-selection label {
+    display: block;
+    margin-left: 15px;
+    font-weight: 400;
+}
+
+/* ===== Giá combo ===== */
+.combo-price-display {
+    font-weight: bold;
+    color: #1a73e8;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+/* ===== Tổng giá ===== */
+.total {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #1a73e8;
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: #cbddee;
+    padding: 15px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer .social-media a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 5px;
+    font-weight: 500;
+}
+
+footer .social-media a:hover {
+    color: #1a73e8;
+}
+.order-btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#orderBtn {
+    background-color: #1a73e8;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#orderBtn:hover {
+    background-color: #1666c1;
+    transform: translateY(-2px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navigation ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .combo-container {
+        padding: 15px;
+    }
+
+    .combo-item select,
+    .combo-item input[type="number"] {
+        min-width: 100%;
+        margin: 5px 0 0 0;
+    }
+}
+
+
+

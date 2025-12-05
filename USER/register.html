@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Đăng ký - HuyenVan Restaurant</title>
+
+    <style>
+        body {
+            background: #f2f2f2;
+        }
+        .register-container {
+            width: 380px;
+            margin: 60px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 93%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .btn-register {
+            width: 100%;
+            padding: 12px;
+            background: #009688;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 17px;
+            margin-top: 5px;
+        }
+
+        .btn-register:hover {
+            background: #00796b;
+        }
+
+        .error, .success {
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: none;
+            text-align: center;
+        }
+
+        .error {
+            background: #ffdddd;
+            border-left: 5px solid #e00;
+            color: #a00;
+        }
+
+        .success {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            color: #155724;
+        }
+
+        .link-login {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .link-login a {
+            color: #0077cc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-container">
+        <h2>Đăng ký tài khoản</h2>
+
+        <div class="error" id="errorBox"></div>
+        <div class="success" id="successBox">Đăng ký thành công! Đang chuyển hướng...</div>
+
+        <input type="text" id="username" placeholder="Tên đăng nhập" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Mật khẩu" required>
+        <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" required>
+
+        <button class="btn-register" onclick="register()">Đăng ký</button>
+
+        <div class="link-login">
+            Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a>
+        </div>
+    </div>
+
+    <script>
+        function register() {
+            let username = document.getElementById("username").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+            let errorBox = document.getElementById("errorBox");
+            let successBox = document.getElementById("successBox");
+
+            errorBox.style.display = "none";
+            successBox.style.display = "none";
+
+            // Kiểm tra nhập đầy đủ
+            if (!username || !email || !password || !confirmPassword) {
+                errorBox.innerText = "Vui lòng nhập đầy đủ thông tin!";
+                errorBox.style.display = "block";
+                return;
+            }
+
+            // Kiểm tra mật khẩu
+            if (password.length < 6) {
+                errorBox.innerText = "Mật khẩu phải ít nhất 6 ký tự!";
+                errorBox.style.display = "block";
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                errorBox.innerText = "Mật khẩu nhập lại không khớp!";
+                errorBox.style.display = "block";
+                return;
+            }
+
+            // Lấy danh sách tài khoản hiện có
+            let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
+            // Kiểm tra trùng username
+            if (accounts.some(acc => acc.username === username)) {
+                errorBox.innerText = "Tên đăng nhập đã tồn tại!";
+                errorBox.style.display = "block";
+                return;
+            }
+
+            // Lưu tài khoản mới
+            accounts.push({
+                username: username,
+                email: email,
+                password: password,
+                role: "customer"
+            });
+
+            localStorage.setItem("accounts", JSON.stringify(accounts));
+
+            successBox.style.display = "block";
+
+            // Chuyển sang đăng nhập sau 1.5s
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 1500);
+        }
+    </script>
+
+</body>
+</html>

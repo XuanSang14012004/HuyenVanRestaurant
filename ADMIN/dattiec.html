@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản lý Đặt Tiệc</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans text-sm">
+  <div class="min-h-screen flex">
+
+    <!-- SIDEBAR placeholder -->
+   <aside class="w-72 bg-white border-r p-4 hidden md:flex flex-col">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-gradient-to-tr from-amber-400 to-orange-500 rounded-md flex items-center justify-center text-white font-bold">TM</div>
+        <div>
+          <div class="font-semibold">Tiệc Mâm Lưu Động</div>
+          <div class="text-xs text-gray-500">Admin</div>
+        </div>
+      </div>
+
+      <nav class="flex-1">
+        <ul class="space-y-1">
+          <li class="px-3 py-2 rounded-md bg-amber-50"><a href="index.html">Dashboard</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="monan.html">Món ăn & đồ uống</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="goitiec.html">Gói tiệc</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="dattiec.html">Đặt tiệc</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="nhansu.html">Nhân sự</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="dungcu.html">Xe & Dụng cụ</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="nguyenlieu.html">Nguyên liệu</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="hopdong.html">Hợp đồng & Thanh toán</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="baocao.html">Báo cáo</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="caidat.html">Cài đặt</a></li>
+        </ul>
+      </nav>
+
+      <div class="text-xs text-gray-500">© 2025 Tiệc Mâm Lưu Động</div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="flex-1 p-4 md:p-6 space-y-6">
+
+      <!-- HEADER -->
+      <header class="flex justify-between items-center">
+        <h1 class="text-2xl font-semibold">Quản lý Đặt Tiệc</h1>
+        <button class="px-4 py-2 bg-amber-500 text-white rounded hover:bg-amber-600">Tạo đơn mới</button>
+      </header>
+
+      <!-- FILTERS -->
+      <section class="bg-white p-4 rounded shadow">
+        <h2 class="font-semibold mb-3">Bộ lọc</h2>
+        <div class="grid md:grid-cols-4 gap-4 text-sm">
+          <input type="text" placeholder="Tìm theo tên khách..." class="border p-2 rounded w-full" />
+          <select class="border p-2 rounded w-full">
+            <option value="">Trạng thái</option>
+            <option>Chờ duyệt</option>
+            <option>Đã duyệt</option>
+            <option>Đang phục vụ</option>
+            <option>Hoàn thành</option>
+          </select>
+          <input type="date" class="border p-2 rounded w-full" />
+          <button class="px-4 py-2 bg-gray-200 rounded">Lọc</button>
+        </div>
+      </section>
+
+      <!-- LIST BOOKINGS -->
+      <section class="bg-white p-4 rounded shadow">
+        <h2 class="font-semibold mb-4">Danh sách đơn đặt tiệc</h2>
+
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-gray-200 text-left text-xs">
+                <th class="p-3">Mã đơn</th>
+                <th class="p-3">Khách hàng</th>
+                <th class="p-3">Ngày tổ chức</th>
+                <th class="p-3">Gói tiệc</th>
+                <th class="p-3">Số mâm</th>
+                <th class="p-3">Tình trạng</th>
+                <th class="p-3 text-right">Hành động</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm">
+
+              <tr class="border-b hover:bg-gray-50">
+                <td class="p-3 font-medium">BK-1024</td>
+                <td class="p-3">Nguyễn Văn A<br><span class="text-xs text-gray-500">0903 123 456</span></td>
+                <td class="p-3">2025-12-10<br><span class="text-xs text-gray-500">10:00</span></td>
+                <td class="p-3">Mâm gia đình</td>
+                <td class="p-3">3</td>
+                <td class="p-3"><span class="px-2 py-1 text-xs bg-green-100 text-green-700 rounded">Đã duyệt</span></td>
+                <td class="p-3 text-right space-x-2">
+                  <button class="px-3 py-1 bg-blue-600 text-white rounded text-xs">Xem</button>
+                  <button class="px-3 py-1 bg-yellow-500 text-white rounded text-xs">Sửa</button>
+                  <button class="px-3 py-1 bg-red-600 text-white rounded text-xs">Xóa</button>
+                </td>
+              </tr>
+
+              <tr class="border-b hover:bg-gray-50">
+                <td class="p-3 font-medium">BK-1025</td>
+                <td class="p-3">Trần Thị B<br><span class="text-xs text-gray-500">0984 222 888</span></td>
+                <td class="p-3">2025-12-12<br><span class="text-xs text-gray-500">18:00</span></td>
+                <td class="p-3">Mâm cưới</td>
+                <td class="p-3">5</td>
+                <td class="p-3"><span class="px-2 py-1 text-xs bg-yellow-100 text-yellow-700 rounded">Chờ duyệt</span></td>
+                <td class="p-3 text-right space-x-2">
+                  <button class="px-3 py-1 bg-blue-600 text-white rounded text-xs">Xem</button>
+                  <button class="px-3 py-1 bg-yellow-500 text-white rounded text-xs">Sửa</button>
+                  <button class="px-3 py-1 bg-red-600 text-white rounded text-xs">Xóa</button>
+                </td>
+              </tr>
+
+              <tr class="border-b hover:bg-gray-50">
+                <td class="p-3 font-medium">BK-1026</td>
+                <td class="p-3">Lê Văn C<br><span class="text-xs text-gray-500">0932 445 221</span></td>
+                <td class="p-3">2025-12-15<br><span class="text-xs text-gray-500">12:00</span></td>
+                <td class="p-3">Mâm chay</td>
+                <td class="p-3">2</td>
+                <td class="p-3"><span class="px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded">Chuẩn bị</span></td>
+                <td class="p-3 text-right space-x-2">
+                  <button class="px-3 py-1 bg-blue-600 text-white rounded text-xs">Xem</button>
+                  <button class="px-3 py-1 bg-yellow-500 text-white rounded text-xs">Sửa</button>
+                  <button class="px-3 py-1 bg-red-600 text-white rounded text-xs">Xóa</button>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>

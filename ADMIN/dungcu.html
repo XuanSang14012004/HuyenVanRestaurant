@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản lý Xe & Dụng cụ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 font-sans text-sm">
+  <div class="min-h-screen flex">
+
+    <!-- SIDEBAR -->
+    <aside class="w-72 bg-white border-r p-4 hidden md:flex flex-col">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-gradient-to-tr from-amber-400 to-orange-500 rounded-md flex items-center justify-center text-white font-bold">TM</div>
+        <div>
+          <div class="font-semibold">Tiệc Mâm Lưu Động</div>
+          <div class="text-xs text-gray-500">Admin</div>
+        </div>
+      </div>
+
+      <nav class="flex-1">
+        <ul class="space-y-1">
+          <li class="px-3 py-2 rounded-md bg-amber-50"><a href="index.html">Dashboard</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="monan.html">Món ăn & đồ uống</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="goitiec.html">Gói tiệc</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="dattiec.html">Đặt tiệc</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="nhansu.html">Nhân sự</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="dungcu.html">Xe & Dụng cụ</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="nguyenlieu.html">Nguyên liệu</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="hopdong.html">Hợp đồng & Thanh toán</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="baocao.html">Báo cáo</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="caidat.html">Cài đặt</a></li>
+        </ul>
+      </nav>
+
+      <div class="text-xs text-gray-500">© 2025 Tiệc Mâm Lưu Động</div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="flex-1 p-4 md:p-6 space-y-6">
+
+      <!-- HEADER -->
+      <header class="flex justify-between items-center">
+        <h1 class="text-2xl font-semibold">Quản lý Xe & Dụng cụ</h1>
+        <button class="px-4 py-2 bg-amber-500 text-white rounded hover:bg-amber-600">
+          Thêm mới
+        </button>
+      </header>
+
+      <!-- TABS -->
+      <div class="flex gap-4 border-b pb-2 text-sm font-medium">
+        <a href="#xe" class="tabXe px-3 py-2 rounded-t bg-white border border-b-0 shadow">Xe</a>
+        <a href="#dungcu" class="tabDungCu px-3 py-2 rounded-t hover:bg-gray-200">Dụng cụ</a>
+      </div>
+
+      <!-- ---------- TAB XE ---------- -->
+      <section id="xe" class="bg-white p-4 rounded shadow">
+        <h2 class="font-semibold mb-4">Danh sách Xe</h2>
+
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-gray-200 text-left text-xs">
+                <th class="p-3">Mã xe</th>
+                <th class="p-3">Tên xe</th>
+                <th class="p-3">Biển số</th>
+                <th class="p-3">Tình trạng</th>
+                <th class="p-3 text-right">Hành động</th>
+              </tr>
+            </thead>
+
+            <tbody class="text-sm">
+
+              <tr class="border-b hover:bg-gray-50">
+                <td class="p-3 font-medium">XE-01</td>
+                <td class="p-3">Xe tải nhỏ</td>
+                <td class="p-3">51C-889.12</td>
+                <td class="p-3">
+                  <span class="px-2 py-1 text-xs bg-green-100 text-green-700 rounded">Đang hoạt động</span>
+                </td>
+                <td class="p-3 text-right space-x-2">
+                  <button class="px-3 py-1 bg-blue-600 text-white rounded text-xs">Xem</button>
+                  <button class="px-3 py-1 bg-yellow-500 text-white rounded text-xs">Sửa</button>
+                  <button class="px-3 py-1 bg-red-600 text-white rounded text-xs">Xóa</button>
+                </td>
+              </tr>
+
+              <tr class="border-b hover:bg-gray-50">
+                <td class="p-3 font-medium">XE-02</td>
+                <td class="p-3">Xe bán tải</td>
+                <td class="p-3">60A-223.45</td>
+                <td class="p-3">
+                  <span class="px-2 py-1 text-xs bg-yellow-100 text-yellow-700 rounded">Bảo trì</span>
+                </td>
+                <td class="p-3 text-right space-x-2">
+                  <button class="px-3 py-1 bg-blue-600 text-white rounded text-xs">Xem</button>
+                  <button class="px-3 py-1 bg-yellow-500 text-white rounded text-xs">Sửa</button>
+                  <button class="px-3 py-1 bg-red-600 text-white rounded text-xs">Xóa</button>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ---------- TAB DỤNG CỤ ---------- -->
+      <section id="dungcu" class="bg-white p-4 rounded shadow hidden">
+        <h2 class="font-semibold mb-4">Danh sách Dụng cụ</h2>
+
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-gray-200 text-left text-xs">
+                <th class="p-3">Mã DC</th>
+                <th class="p-3">Tên dụng cụ</th>
+                <th class="p-3">Số lượng</th>
+                <th class="p-3">Tình trạng</th>
+                <th class="p-3 text-right">Hành động</th>
+              </tr>
+            </thead>
+
+            <tbody class="text-sm">
+
+              <tr class="border-b hover:bg-gray-50">
+                <td class="p-3 font-medium">DC-01</td>
+                <td class="p-3">Bàn inox</td>
+                <td class="p-3">12</td>
+                <td class="p-3">
+                  <span class="px-2 py-1 text-xs bg-green-100 text-green-700 rounded">Tốt</span>
+                </td>
+                <td class="p-3 text-right space-x-2">
+                  <button class="px-3 py-1 bg-blue-600 text-white rounded text-xs">Xem</button>
+                  <button class="px-3 py-1 bg-yellow-500 text-white rounded text-xs">Sửa</button>
+                  <button class="px-3 py-1 bg-red-600 text-white rounded text-xs">Xóa</button>
+                </td>
+              </tr>
+
+              <tr class="border-b hover:bg-gray-50">
+                <td class="p-3 font-medium">DC-02</td>
+                <td class="p-3">Nồi lớn</td>
+                <td class="p-3">20</td>
+                <td class="p-3">
+                  <span class="px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded">Hư hỏng</span>
+                </td>
+                <td class="p-3 text-right space-x-2">
+                  <button class="px-3 py-1 bg-blue-600 text-white rounded text-xs">Xem</button>
+                  <button class="px-3 py-1 bg-yellow-500 text-white rounded text-xs">Sửa</button>
+                  <button class="px-3 py-1 bg-red-600 text-white rounded text-xs">Xóa</button>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- JS đơn giản để chuyển tab -->
+  <script>
+    const tabXe = document.querySelector(".tabXe");
+    const tabDungCu = document.querySelector(".tabDungCu");
+
+    const secXe = document.querySelector("#xe");
+    const secDC = document.querySelector("#dungcu");
+
+    tabXe.addEventListener("click", () => {
+      secXe.classList.remove("hidden");
+      secDC.classList.add("hidden");
+
+      tabXe.classList.add("bg-white", "border", "border-b-0", "shadow");
+      tabDungCu.classList.remove("bg-white", "border", "border-b-0", "shadow");
+    });
+
+    tabDungCu.addEventListener("click", () => {
+      secDC.classList.remove("hidden");
+      secXe.classList.add("hidden");
+
+      tabDungCu.classList.add("bg-white", "border", "border-b-0", "shadow");
+      tabXe.classList.remove("bg-white", "border", "border-b-0", "shadow");
+    });
+  </script>
+
+</body>
+</html>

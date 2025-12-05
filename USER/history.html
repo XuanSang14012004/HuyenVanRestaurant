@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <link rel="icon" href="../images/logo-nha-hang-sang-trong.jpg" type="image/jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Lịch sử đặt món</title>
+    
+</head>
+<body>
+     <header>
+        <div class ="header">
+            <div class="logo">
+                <img src="../images/logo-nha-hang-sang-trong.jpg" alt="HuyenVan Restaurant Logo">
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="history.html">&#xF292;Lịch Sử</a></li>
+                    <li><a href="login.html">Đăng nhập</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <header>
+        <h2 style="text-align:center; margin-top:20px;">Lịch Sử Đặt Món</h2>
+    </header>
+    
+
+    <div class="history-container">
+        <table id="historyTable">
+            <thead>
+                <tr>
+                    <th>Tên món</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
+                    <th>Ngày đặt</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+    <tr>
+        <td>Phở Bò Đặc Biệt</td>
+        <td>2</td>
+        <td>120,000đ</td>
+        <td>2025-02-15 14:30</td>
+        <td><button onclick="deleteItem(0)">Xóa</button></td>
+    </tr>
+
+    <tr>
+        <td>Bún Chả Hà Nội</td>
+        <td>1</td>
+        <td>60,000đ</td>
+        <td>2025-02-16 11:20</td>
+        <td><button onclick="deleteItem(1)">Xóa</button></td>
+    </tr>
+
+    <tr>
+        <td>Gỏi Cuốn Tôm Thịt</td>
+        <td>3</td>
+        <td>75,000đ</td>
+        <td>2025-02-18 18:45</td>
+        <td><button onclick="deleteItem(2)">Xóa</button></td>
+    </tr>
+</tbody>
+
+            
+        </table>
+
+        <button class="btn-clear" onclick="clearHistory()">Xóa toàn bộ lịch sử</button>
+    </div>
+
+  
+<hr>
+    <footer>
+        <div class="footer">
+            
+            <div class="social-media">
+                <a href="#">Facebook</a> |
+                <a href="#">Twitter</a> |
+                <a href="#">Instagram</a>
+            </div>
+            <p>&copy; 2025 NXS04. All rights reserved.</p>
+        </div>
+        
+    </footer>
+</body>
+</html>

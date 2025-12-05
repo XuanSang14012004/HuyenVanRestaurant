@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../images/logo-nha-hang-sang-trong.jpg" type="image/jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Combo HuyenVan Restaurant</title>
+</head>
+<body>
+    <header>
+        <div class ="header">
+            <div class="logo">
+                <img src="../images/logo-nha-hang-sang-trong.jpg" alt="HuyenVan Restaurant Logo">
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="history.html">&#xF292;Lịch Sử</a></li>
+                    <li><a href="login.html">Đăng nhập</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <header>
+        <h1>Đặt Combo Theo Mâm</h1>
+    </header>
+
+    <div class="combo-container">
+
+    <div class="combo-item" data-name="Combo Gia Đình">
+    <h3>Combo Gia Đình</h3>
+    
+    <!-- Chọn loại mâm -->
+    <label>
+        Loại mâm:
+        <select class="mau-type">
+            <option value="6">6 người</option>
+            <option value="8">8 người</option>
+            <option value="10">10 người</option>
+        </select>
+    </label>
+
+    <!-- Chọn gói giá cho mâm -->
+    <label>
+        Gói giá:
+        <select class="price-type">
+            <option value="600000" data-price="600000">600.000đ</option>
+            <option value="800000" data-price="800000">800.000đ</option>
+            <option value="1000000" data-price="1000000">1.000.000đ</option>
+            <option value="1200000" data-price="1200000"> 1.200.000đ</option>
+            <option value="1500000" data-price="1500000"> 1.500.000đ</option>
+        </select>
+    </label>
+
+    <!-- Số lượng mâm -->
+    <label>
+        Số lượng mâm:
+        <input type="number" class="combo-quantity" value="1" min="1">
+    </label>
+
+    <!-- Chọn món cụ thể (tùy chọn) -->
+    <div class="menu-selection">
+        <label><input type="checkbox" class="menu-item" data-price="35000"> Gỏi cuốn tôm thịt (35.000đ)</label>
+        <label><input type="checkbox" class="menu-item" data-price="55000"> Cơm tấm sườn bì chả (55.000đ)</label>
+        <label><input type="checkbox" class="menu-item" data-price="25000"> Chè ba màu (25.000đ)</label>
+        <label><input type="checkbox" class="menu-item" data-price="40000"> Trà sữa trân châu (40.000đ)</label>
+    </div>
+
+    <!-- Hiển thị giá tạm tính -->
+    <p>Giá tạm tính: <span class="combo-price-display">0đ</span></p>
+</div>
+
+<!-- Nút đặt combo -->
+<div class="order-btn">
+    <button id="orderBtn">Đặt Combo</button>
+</div>
+
+</div>
+
+      
+   
+    <script>
+       const comboItems = document.querySelectorAll('.combo-item');
+       const totalPriceEl = document.getElementById('totalPrice');
+       const orderBtn = document.getElementById('orderBtn');
+
+orderBtn.addEventListener('click', () => {
+    let orderDetails = '';
+    comboItems.forEach(item => {
+        const comboName = item.dataset.name;
+        const quantity = parseInt(item.querySelector('.combo-quantity').value);
+        const type = item.querySelector('.mau-type').value;
+        const price = item.querySelector('.combo-price-display').textContent;
+
+        // Lấy danh sách món tùy chọn
+        const selectedMenu = [];
+        item.querySelectorAll('.menu-item').forEach(chk => {
+            if(chk.checked){
+                selectedMenu.push(chk.parentElement.textContent.trim());
+            }
+        });
+
+        orderDetails += `${comboName} - Mâm ${type} người - Số lượng: ${quantity} mâm\n`;
+        if(selectedMenu.length > 0){
+            orderDetails += `  Chọn món thêm: ${selectedMenu.join(', ')}\n`;
+        }
+        orderDetails += `  Giá: ${price}\n\n`;
+    });
+
+    orderDetails += `Tổng giá: ${totalPriceEl.textContent}`;
+
+    alert("Đặt combo thành công!\n\n" + orderDetails);
+});
+
+
+function formatPrice(price){
+    return price.toLocaleString('vi-VN') + 'đ';
+}
+
+comboItems.forEach(item => {
+    const quantityInput = item.querySelector('.combo-quantity');
+    const priceSelect = item.querySelector('.price-type');
+    const menuCheckboxes = item.querySelectorAll('.menu-item');
+    const priceDisplay = item.querySelector('.combo-price-display');
+
+    function updatePrice() {
+        const quantity = parseInt(quantityInput.value);
+        const basePrice = parseInt(priceSelect.selectedOptions[0].dataset.price);
+
+        // Cộng thêm giá các món tùy chọn
+        let extra = 0;
+        menuCheckboxes.forEach(chk => {
+            if(chk.checked){
+                extra += parseInt(chk.dataset.price);
+            }
+        });
+
+        const total = (basePrice + extra) * quantity;
+        priceDisplay.textContent = formatPrice(total);
+        calculateTotal();
+    }
+
+    quantityInput.addEventListener('change', updatePrice);
+    priceSelect.addEventListener('change', updatePrice);
+    menuCheckboxes.forEach(chk => chk.addEventListener('change', updatePrice));
+});
+
+// Tính tổng tất cả combo
+function calculateTotal(){
+    let total = 0;
+    comboItems.forEach(item => {
+        const display = item.querySelector('.combo-price-display').textContent.replace(/[đ,.]/g,'');
+        total += parseInt(display) || 0;
+    });
+    totalPriceEl.textContent = formatPrice(total);
+}
+
+// Tính giá ban đầu
+calculateTotal();
+
+
+    </script>
+<hr>
+    <footer>
+        <div class="footer">
+            
+            <div class="social-media">
+                <a href="#">Facebook</a> |
+                <a href="#">Twitter</a> |
+                <a href="#">Instagram</a>
+            </div>
+            <p>&copy; 2025 NXS04. All rights reserved.</p>
+        </div>
+        
+    </footer>
+</body>
+</html>

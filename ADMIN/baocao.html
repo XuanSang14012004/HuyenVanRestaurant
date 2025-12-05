@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Báo cáo thống kê</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans text-sm">
+<div class="min-h-screen flex">
+
+  <!-- SIDEBAR -->
+  <aside class="w-72 bg-white border-r p-4 hidden md:flex flex-col">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-10 h-10 bg-gradient-to-tr from-amber-400 to-orange-500 rounded-md flex items-center justify-center text-white font-bold">TM</div>
+      <div>
+        <div class="font-semibold">Tiệc Mâm Lưu Động</div>
+        <div class="text-xs text-gray-500">Admin</div>
+      </div>
+    </div>
+
+    <nav class="flex-1">
+      <ul class="space-y-1">
+          <li class="px-3 py-2 rounded-md bg-amber-50"><a href="index.html">Dashboard</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="monan.html">Món ăn & đồ uống</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="goitiec.html">Gói tiệc</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="dattiec.html">Đặt tiệc</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="nhansu.html">Nhân sự</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="dungcu.html">Xe & Dụng cụ</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="nguyenlieu.html">Nguyên liệu</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="hopdong.html">Hợp đồng & Thanh toán</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="baocao.html">Báo cáo</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="caidat.html">Cài đặt</a></li>
+        </ul>
+    </nav>
+
+    <div class="text-xs text-gray-500">© 2025 Tiệc Mâm Lưu Động</div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="flex-1 p-4 md:p-6 space-y-6">
+
+    <!-- HEADER -->
+    <header class="flex justify-between items-center">
+      <h1 class="text-2xl font-semibold">Báo cáo thống kê</h1>
+    </header>
+
+    <!-- FILTERS -->
+    <section class="bg-white p-4 rounded shadow">
+      <h2 class="font-semibold mb-3">Bộ lọc báo cáo</h2>
+      <div class="grid md:grid-cols-4 gap-4 text-sm">
+        <select class="border p-2 rounded w-full">
+          <option value="">Loại báo cáo</option>
+          <option>Doanh thu</option>
+          <option>Số lượng đặt tiệc</option>
+          <option>Chi phí nguyên liệu</option>
+          <option>Hiệu suất nhân sự</option>
+        </select>
+        <input type="date" class="border p-2 rounded w-full" />
+        <input type="date" class="border p-2 rounded w-full" />
+        <button class="px-4 py-2 bg-gray-200 rounded w-full">Lọc</button>
+      </div>
+    </section>
+
+    <!-- KPI CARDS -->
+    <section class="grid md:grid-cols-4 gap-4">
+      <div class="bg-white p-4 rounded shadow">
+        <div class="text-gray-500 text-xs">Doanh thu tháng</div>
+        <div class="text-2xl font-semibold text-green-600">52,400,000₫</div>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <div class="text-gray-500 text-xs">Số tiệc đã phục vụ</div>
+        <div class="text-2xl font-semibold text-blue-600">34</div>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <div class="text-gray-500 text-xs">Chi phí nguyên liệu</div>
+        <div class="text-2xl font-semibold text-red-600">18,200,000₫</div>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <div class="text-gray-500 text-xs">Mức hài lòng (khảo sát)</div>
+        <div class="text-2xl font-semibold text-amber-600">92%</div>
+      </div>
+    </section>
+
+    <!-- TABLE REPORT -->
+    <section class="bg-white p-4 rounded shadow">
+      <h2 class="font-semibold mb-4">Chi tiết báo cáo</h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr class="bg-gray-200 text-left text-xs">
+              <th class="p-3">Ngày</th>
+              <th class="p-3">Loại</th>
+              <th class="p-3">Mô tả</th>
+              <th class="p-3">Giá trị</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-3">2025-12-01</td>
+              <td class="p-3">Doanh thu</td>
+              <td class="p-3">Tiệc mâm cưới - KH Nguyễn A</td>
+              <td class="p-3 font-semibold text-green-600">12,000,000₫</td>
+            </tr>
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-3">2025-12-03</td>
+              <td class="p-3">Chi phí</td>
+              <td class="p-3">Nhập rau củ</td>
+              <td class="p-3 font-semibold text-red-600">- 1,200,000₫</td>
+            </tr>
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-3">2025-12-05</td>
+              <td class="p-3">Doanh thu</td>
+              <td class="p-3">Tiệc đầy tháng - KH Trần B</td>
+              <td class="p-3 font-semibold text-green-600">6,500,000₫</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

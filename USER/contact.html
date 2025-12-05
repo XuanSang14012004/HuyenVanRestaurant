@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <link rel="icon" href="../images/logo-nha-hang-sang-trong.jpg" type="image/jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Liên hệ - HuyenVan Restaurant</title>
+  
+</head>
+<body>
+
+    <header>
+        <div class="header">
+            <div class="logo">
+                <img src="../images/logo-nha-hang-sang-trong.jpg" alt="Logo">
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="contact.html" class="active">Liên hệ</a></li>
+                    <li><a href="history.html">Lịch sử</a></li>
+                    <li><a href="login.html">Đăng nhập</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="contact-container">
+        <h2>Liên hệ với chúng tôi</h2>
+
+        <div class="contact-info">
+            <p><b>📍 Địa chỉ:</b> 123 Nguyễn Huệ, TP. Hồ Chí Minh</p>
+            <p><b>📞 Hotline:</b> 0123 456 789</p>
+            <p><b>✉ Email:</b> support@huyenvanrestaurant.com</p>
+            <p><b>⏰ Giờ mở cửa:</b> 8:00 - 22:00 (Thứ 2 - Chủ nhật)</p>
+        </div>
+
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Họ tên của bạn" required>
+            <input type="email" id="email" placeholder="Email liên hệ" required>
+            <textarea id="message" placeholder="Lời nhắn của bạn..." required></textarea>
+
+            <button type="submit" class="btn-send">Gửi liên hệ</button>
+
+            <div class="success-message" id="successMessage">
+                ✔ Cảm ơn bạn! Chúng tôi sẽ phản hồi sớm nhất.
+            </div>
+        </form>
+    </div>
+<hr>
+    <footer>
+        <div class="footer">
+            <div class="social-media">
+                <a href="#">Facebook</a> |
+                <a href="#">Twitter</a> |
+                <a href="#">Instagram</a>
+            </div>
+            <p>&copy; 2025 NXS04. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Xử lý gửi form
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            document.getElementById("successMessage").style.display = "block";
+
+            // Xóa dữ liệu nhập
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("message").value = "";
+        });
+    </script>
+
+</body>
+</html>

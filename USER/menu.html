@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../images/logo-nha-hang-sang-trong.jpg" type="image/jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>HuyenVan Restaurant</title>
+</head>
+<body>
+    <header>
+        <div class ="header">
+            <div class="logo">
+                <img src="../images/logo-nha-hang-sang-trong.jpg" alt="HuyenVan Restaurant Logo">
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="history.html">&#xF292;Lịch Sử</a></li>
+                    <li><a href="login.html">Đăng nhập</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <div class="search">
+        <input type="text" id="searchBar" onkeyup="searchMenu()" placeholder="Tìm kiếm món ăn..." >
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <div class="filter">
+        <ul>
+            <li><a href="#" onclick="filterMenu('all')">Tất cả</a></li>
+            <li><a href="#" onclick="filterMenu('appetizers')">Khai vị</a></li>
+            <li><a href="#" onclick="filterMenu('main-courses')">Món chính</a></li>
+            <li><a href="#" onclick="filterMenu('desserts')">Tráng miệng</a></li>
+            <li><a href="#" onclick="filterMenu('beverages')">Đồ uống</a></li>
+            <li><a href="combo.html" onclick="filterMenu('combo')">Combo</a></li>
+        </ul>
+    </div>
+
+<div class="menu-container">
+  <div class="menu-list">
+
+    <!-- Món 1: Gỏi cuốn tôm thịt (Khai vị) -->
+    <div class="menu-item" data-name="Gỏi cuốn tôm thịt" data-price="35000" data-category="appetizers">
+      <input type="checkbox" class="select-item">
+      <img src="../images/logo-nha-hang-sang-trong.jpg" alt="Gỏi cuốn tôm thịt">
+      <h3>Gỏi cuốn tôm thịt</h3>
+      <p>Loại món: <strong>Khai vị</strong></p>
+      <p>Cuốn tươi ngon, chấm mắm nêm đặc biệt.</p>
+      <span class="price">35.000đ</span>
+      <label>Số lượng: 
+         <input type="number" class="quantity" value="1" min="1" step="1">
+      </label>
+    </div>
+
+    <!-- Món 2: Cơm tấm sườn bì chả (Món chính) -->
+    <div class="menu-item" data-name="Cơm tấm sườn bì chả" data-price="55000" data-category="main-courses">
+      <input type="checkbox" class="select-item">
+      <img src="../images/logo-nha-hang-sang-trong.jpg" alt="Cơm tấm sườn bì chả">
+      <h3>Cơm tấm sườn bì chả</h3>
+      <p>Loại món: <strong>Khai vị</strong></p>
+      <p>Món đặc trưng Sài Gòn, đậm đà hương vị quê nhà.</p>
+      <span class="price">55.000đ</span>
+      <label>Số lượng: 
+         <input type="number" class="quantity" value="1" min="1" step="1">
+      </label>
+    </div>
+
+    <!-- Món 3: Chè ba màu (Tráng miệng) -->
+    <div class="menu-item" data-name="Chè ba màu" data-price="25000" data-category="desserts">
+      <input type="checkbox" class="select-item">
+      <img src="../images/logo-nha-hang-sang-trong.jpg" alt="Chè ba màu">
+      <h3>Chè ba màu</h3>
+      <p>Loại món: <strong>Khai vị</strong></p>
+      <p>Ngọt thanh, mát lạnh, kết thúc bữa ăn hoàn hảo.</p>
+      <span class="price">25.000đ</span>
+      <label>Số lượng: 
+      <input type="number" class="quantity" value="1" min="1" step="1">
+      </label>
+    </div>
+
+    <!-- Món 4: Trà sữa trân châu (Đồ uống) -->
+    <div class="menu-item" data-name="Trà sữa trân châu" data-price="40000" data-category="beverages">
+      <input type="checkbox" class="select-item">
+      <img src="../images/logo-nha-hang-sang-trong.jpg" alt="Trà sữa trân châu">
+      <h3>Trà sữa trân châu</h3>
+      <p>Loại món: <strong>Khai vị</strong></p>
+      <p>Thức uống yêu thích, béo ngậy và thơm ngon.</p>
+      <span class="price">40.000đ</span>
+      <label>Số lượng: 
+      <input type="number" class="quantity" value="1" min="1" step="1">
+     </label>
+    </div>
+  </div>
+
+  <!-- Nút đặt tất cả -->
+  <div class="order-all">
+    <a href="order.html"><button id="orderAllBtn">  Đặt món</button></a> 
+  </div>
+</div>
+
+
+
+    <hr>
+
+    <footer>
+        <div class="footer">
+            
+            <div class="social-media">
+                <a href="#">Facebook</a> |
+                <a href="#">Twitter</a> |
+                <a href="#">Instagram</a>
+            </div>
+            <p>&copy; 2025 NXS04. All rights reserved.</p>
+        </div>
+        
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

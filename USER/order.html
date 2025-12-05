@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <link rel="icon" href="../images/logo-nha-hang-sang-trong.jpg" type="image/jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Đặt hàng - HuyenVan Restaurant</title>
+
+</head>
+<body>
+
+    <header>
+        <h1>🧾 Xác nhận đơn hàng</h1>
+    </header>
+
+    <div id="orderSummary"></div>
+
+    <div style="text-align:center; margin-top:20px;">
+        <a href="menu.html" class="btn">← Quay lại Menu</a>
+    </div>
+
+    <script>
+        const orderSummary = document.getElementById('orderSummary');
+        const items = JSON.parse(localStorage.getItem('selectedItems')) || [];
+
+        if (items.length === 0) {
+            orderSummary.innerHTML = '<p>⚠️ Bạn chưa chọn món nào. <a href="menu.html">Quay lại Menu</a></p>';
+        } else {
+            let total = 0;
+            let html = '<table border="1" cellpadding="10" cellspacing="0" style="margin:auto;">';
+            html += '<tr><th>Tên món</th><th>Giá</th></tr>';
+
+            items.forEach(item => {
+                html += `<tr><td>${item.name}</td><td>${Number(item.price).toLocaleString()}đ</td></tr>`;
+                total += Number(item.price);
+            });
+
+            html += `<tr><th>Tổng cộng</th><th>${total.toLocaleString()}đ</th></tr>`;
+            html += '</table>';
+            html += '<br><button onclick="confirmOrder()">Xác nhận đặt hàng</button>';
+
+            orderSummary.innerHTML = html;
+        }
+
+        function confirmOrder() {
+            alert('Đặt hàng thành công! 🎉');
+            localStorage.removeItem('selectedItems');
+            window.location.href = 'menu.html';
+        }
+    </script>
+
+</body>
+</html>

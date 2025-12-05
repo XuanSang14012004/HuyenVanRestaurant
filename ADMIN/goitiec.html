@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quản lý Gói Tiệc</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans text-sm">
+  <div class="min-h-screen flex">
+
+    <!-- SIDEBAR -->
+    <aside class="w-72 bg-white border-r p-4 hidden md:flex flex-col">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-gradient-to-tr from-amber-400 to-orange-500 rounded-md flex items-center justify-center text-white font-bold">TM</div>
+        <div>
+          <div class="font-semibold">Tiệc Mâm Lưu Động</div>
+          <div class="text-xs text-gray-500">Admin</div>
+        </div>
+      </div>
+
+      <nav class="flex-1">
+        <ul class="space-y-1">
+          <li class="px-3 py-2 rounded-md bg-amber-50"><a href="index.html">Dashboard</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="monan.html">Món ăn & đồ uống</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="goitiec.html">Gói tiệc</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="dattiec.html">Đặt tiệc</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="nhansu.html">Nhân sự</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="dungcu.html">Xe & Dụng cụ</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="nguyenlieu.html">Nguyên liệu</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="hopdong.html">Hợp đồng & Thanh toán</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="baocao.html">Báo cáo</a></li>
+          <li class="px-3 py-2 rounded-md hover:bg-gray-100"><a href="caidat.html">Cài đặt</a></li>
+        </ul>
+      </nav>
+
+      <div class="text-xs text-gray-500">© 2025 Tiệc Mâm Lưu Động</div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 p-4 md:p-6">
+
+      <!-- TOPBAR -->
+      <header class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-semibold">Quản lý Gói Tiệc</h1>
+        <button onclick="openForm()" class="px-4 py-2 text-sm bg-amber-500 text-white rounded shadow">+ Tạo gói tiệc</button>
+      </header>
+
+      <!-- TABLE -->
+      <section class="bg-white p-4 rounded-lg shadow-sm">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b text-gray-500 text-xs">
+              <th class="py-2 text-left">Tên gói</th>
+              <th class="text-left">Giá</th>
+              <th class="text-left">Số món</th>
+              <th class="text-left">Loại gói</th>
+              <th class="text-right">Hành động</th>
+            </tr>
+          </thead>
+          <tbody id="packageList">
+            <tr class="border-b">
+              <td class="py-3">Mâm Gia Đình 1.2tr</td>
+              <td>₫1,200,000</td>
+              <td>8 món</td>
+              <td>Gia đình</td>
+              <td class="text-right space-x-2">
+                <button class="text-blue-600 text-xs" onclick="editForm()">Sửa</button>
+                <button class="text-red-600 text-xs">Xóa</button>
+              </td>
+            </tr>
+
+            <tr class="border-b">
+              <td class="py-3">Mâm Cưới 5tr</td>
+              <td>₫5,000,000</td>
+              <td>12 món</td>
+              <td>Tiệc cưới</td>
+              <td class="text-right space-x-2">
+                <button class="text-blue-600 text-xs" onclick="editForm()">Sửa</button>
+                <button class="text-red-600 text-xs">Xóa</button>
+              </td>
+            </tr>
+
+            <tr class="border-b">
+              <td class="py-3">Mâm Chay 1tr</td>
+              <td>₫1,000,000</td>
+              <td>7 món</td>
+              <td>Chay</td>
+              <td class="text-right space-x-2">
+                <button class="text-blue-600 text-xs" onclick="editForm()">Sửa</button>
+                <button class="text-red-600 text-xs">Xóa</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="mt-6 text-xs text-gray-500">© 2025 Tiệc Mâm Lưu Động — Admin</footer>
+    </main>
+  </div>
+
+  <!-- FORM MODAL -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-40 hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg p-6 rounded shadow-lg">
+
+      <h2 class="text-xl font-semibold mb-4" id="modalTitle">Tạo gói tiệc</h2>
+
+      <form class="space-y-4">
+        <div>
+          <label class="text-sm">Tên gói</label>
+          <input type="text" class="w-full border rounded px-3 py-2 mt-1" placeholder="Ví dụ: Mâm Gia Đình 1.2tr" />
+        </div>
+
+        <div>
+          <label class="text-sm">Giá</label>
+          <input type="number" class="w-full border rounded px-3 py-2 mt-1" placeholder="1200000" />
+        </div>
+
+        <div>
+          <label class="text-sm">Số món</label>
+          <input type="number" class="w-full border rounded px-3 py-2 mt-1" placeholder="8" />
+        </div>
+
+        <div>
+          <label class="text-sm">Loại gói</label>
+          <select class="w-full border rounded px-3 py-2 mt-1">
+            <option>Gia đình</option>
+            <option>Chay</option>
+            <option>Tiệc cưới</option>
+            <option>Sự kiện</option>
+          </select>
+        </div>
+
+        <div class="flex justify-end gap-3 pt-3">
+          <button type="button" onclick="closeForm()" class="px-3 py-2 text-sm bg-gray-200 rounded">Hủy</button>
+          <button type="submit" class="px-3 py-2 text-sm bg-amber-500 text-white rounded">Lưu</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+
+    function openForm() {
+      modalTitle.textContent = 'Tạo gói tiệc';
+      modal.classList.remove('hidden');
+    }
+
+    function editForm() {
+      modalTitle.textContent = 'Chỉnh sửa gói tiệc';
+      modal.classList.remove('hidden');
+    }
+
+    function closeForm() {
+      modal.classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
