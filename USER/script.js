@@ -1,24 +1,28 @@
+document.getElementById('orderAllBtn').addEventListener('click', function () {
+    const selectedItems = [];
 
-document.getElementById("orderAllBtn").addEventListener("click", function() {
-  const checkedItems = document.querySelectorAll(".select-item:checked");
-  
-  if (checkedItems.length === 0) {
-    alert("❌ Bạn chưa chọn món nào!");
-    return;
-  }
+    document.querySelectorAll('.menu-item').forEach(item => {
+        const checkbox = item.querySelector('.select-item');
+        const qtyInput = item.querySelector('.quantity');
 
-  let total = 0;
-  let message = "🍽️ Danh sách món bạn đã chọn:\n\n";
+        if (checkbox.checked) {
+            selectedItems.push({
+                name: item.dataset.name,
+                price: Number(item.dataset.price),
+                quantity: Number(qtyInput.value)
+            });
+        }
+    });
 
-  checkedItems.forEach(item => {
-    const menuItem = item.closest(".menu-item");
-    const name = menuItem.getAttribute("data-name");
-    const price = parseInt(menuItem.getAttribute("data-price"));
-    total += price;
-    message += `• ${name}: ${price.toLocaleString()}đ\n`;
-  });
+    // Nếu không chọn món nào
+    if (selectedItems.length === 0) {
+        alert("⚠ Vui lòng chọn ít nhất 1 món!");
+        return;
+    }
 
-  message += `\n👉 Tổng cộng: ${total.toLocaleString()}đ\n\nCảm ơn bạn đã đặt món ❤️`;
-  alert(message);
+    // Lưu vào localStorage
+    localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
+
+    // Chuyển sang trang xác nhận
+    window.location.href = 'order.php';
 });
-
