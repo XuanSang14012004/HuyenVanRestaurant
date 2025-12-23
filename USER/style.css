@@ -605,6 +605,22 @@ footer .social-media a:hover {
         margin: 5px 0 0 0;
     }
 }
+/*-------------- xem thêm món======= */
+.menu-selection.hidden {
+    display: none ;
+}
+.toggle-extra {
+    margin: 8px 0;
+    padding: 6px 12px;s
+    background: #ff9800;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+.toggle-extra:hover {
+    background: #e68900;
+}
 
 

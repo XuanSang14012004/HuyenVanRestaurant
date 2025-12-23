@@ -1,3 +1,10 @@
+<?php
+require_once "../../config/connect.php";
+
+$sql = "SELECT * FROM order_history ORDER BY order_date DESC";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -18,11 +25,11 @@
             </div>
             <nav class="navigation">
                 <ul>
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="about.html">Về chúng tôi</a></li>
-                    <li><a href="contact.html">Liên hệ</a></li>
-                    <li><a href="history.html">&#xF292;Lịch Sử</a></li>
+                    <li><a href="../html/index.html">Trang chủ</a></li>
+                    <li><a href="../php/menu.php">Menu</a></li>
+                    <li><a href="../html/about.html">Về chúng tôi</a></li>
+                    <li><a href="../html/contact.html">Liên hệ</a></li>
+                    <li><a href="../php/history.php">&#xF292;Lịch Sử</a></li>
                     <li><a href="login.html">Đăng nhập</a></li>
                 </ul>
             </nav>
@@ -31,7 +38,6 @@
     <header>
         <h2 style="text-align:center; margin-top:20px;">Lịch Sử Đặt Món</h2>
     </header>
-    
 
     <div class="history-container">
         <table id="historyTable">
@@ -45,40 +51,39 @@
                 </tr>
             </thead>
             <tbody>
+        <?php if ($result && $result->num_rows > 0): ?>
+            <?php while ($row = $result->fetch_assoc()): ?>
     <tr>
-        <td>Phở Bò Đặc Biệt</td>
-        <td>2</td>
-        <td>120,000đ</td>
-        <td>2025-02-15 14:30</td>
-        <td><button onclick="deleteItem(0)">Xóa</button></td>
+        <td><?= htmlspecialchars($row['food_name']) ?></td>
+            <td><?= $row['quantity'] ?></td>
+            <td><?= number_format($row['price']) ?>đ</td>
+            <td><?= $row['order_date'] ?></td>
+            <td>
+                <a href="delete_history.php?id=<?= $row['id'] ?>"
+                   onclick="return confirm('Xóa món này?')">
+                   Hủy
+                </a>
+            </td> 
     </tr>
-
-    <tr>
-        <td>Bún Chả Hà Nội</td>
-        <td>1</td>
-        <td>60,000đ</td>
-        <td>2025-02-16 11:20</td>
-        <td><button onclick="deleteItem(1)">Xóa</button></td>
-    </tr>
-
-    <tr>
-        <td>Gỏi Cuốn Tôm Thịt</td>
-        <td>3</td>
-        <td>75,000đ</td>
-        <td>2025-02-18 18:45</td>
-        <td><button onclick="deleteItem(2)">Xóa</button></td>
-    </tr>
-</tbody>
-
-            
+      <?php endwhile; ?>
+      <?php else: ?>
+         <tr>
+            <td colspan="5" style="text-align:center;">Chưa có lịch sử đặt món</td>
+        </tr>
+    <?php endif; ?>
+        </tbody>
         </table>
+<br>
 
-        <button class="btn-clear" onclick="clearHistory()">Xóa toàn bộ lịch sử</button>
-    </div>
+<a href="clear_history.php"
+   onclick="return confirm('Xóa toàn bộ lịch sử?')"
+   class="btn-clear">
+   Xóa toàn bộ lịch sử
+</a>
 
-  
+</div>
 <hr>
-    <footer>
+<footer>
         <div class="footer">
             
             <div class="social-media">
